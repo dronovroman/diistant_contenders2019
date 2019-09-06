@@ -22,7 +22,11 @@ try:
 except:
     print('Failed to call pedestrian SODA API...')
 
-
+df = crash_df.copy()
+df['lat']=df['location'].apply(pd.Series)['latitude']
+df['lon']=df['location'].apply(pd. Series)['longitude']
+df['lat']=df['lat'].astype('float')
+df['lon']=df['lon'].astype('float')
 
 @app.route("/", methods = ['GET'])
 def home():
