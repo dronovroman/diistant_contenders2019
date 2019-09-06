@@ -150,5 +150,3 @@ PARAMS ['TIME'] = 960   # time in minutes after midnight
 PARAMS ['MARGIN'] = 100  #margin in minutes to calculate range
 
 
-if __name__ == "__main__":
-    app.run(debug = False)  
