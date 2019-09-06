@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>CAS2029 - Home</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet">
+  <!-- Tempus dominus CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
+   <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+  <!-- Tempus dominus JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Welcome to Cycling Augmentation System 2029! API from the future that saves lifes! </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+  <!-- Page Content -->
+  <div class="container">
+  
+      <div class="row">
+        <div class="col text-center">
+              <h1 class="mt-5">Please test our API here and use it in our CAS2029 mobile app!</h1>
+              <p class="lead">Use your mobile device for assistance on situational awareness and risks in your area, at your time of the day. Your phone will warn you if you venture into a dangerous place at a dengerous time. Using a smart computer vision algorithm, your phone will help you spot danger in real time as you are riding, and will warn you if you are approaching dangerous (as deemed by analysis of historical data by CAS2029 API!) objects!  </p>
+              
+              <p class="lead">Pick coordinates on the map</p>
+              <div id="mapid" style="height: 300px"></div>
+               <hr>
+               <h3>Where</h3>
+                         <form>
+
+                          <div class="form-group row mt-3">
+                            <label for="lat" class="col-sm-2 col-form-label">Lattitude</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="lat" placeholder="Lattitude" value="-35.3">
+                            </div>
+                          </div>
+                          
+                          
+                          <div class="form-group row">
+                            <label for="lon" class="col-sm-2 col-form-label">Longitude</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="lon" placeholder="Longitude" value="149.12">
+                            </div>
+                          </div>
+                          
+                             <div class="form-group">
+                                <label for="formControlRange">Pick Radius (km)</label>
+                                <input name="slider_value" type="range" min="0.5" max="10" value="1" step="0.5" class="form-control-range" id="formControlRange" onchange="updateRadiusInput(this.value);">
+                              </div>
+                         
+                         
+                         
+                           <div class="form-group row">
+                            <label for="radius" class="col-sm-2 col-form-label">Radius</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="radius" placeholder="Radius" value="1">
+                            </div>
+                          </div>                        
+                         
+
+                         <hr>
+               <h3>When</h3>
+                         
+                                   <div class="form-group row">
+                    
+                                     <label for="datetimepicker1" class="col-sm-2 col-form-label">Time</label>
+                                            <div class="input-group date col-sm-10" id="datetimepicker1" data-target-input="nearest">
+                                                <input type="text" id="dtp" class="form-control datetimepicker-input" value="17:00" data-target="#datetimepicker1"/>
+                                                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                                    <div class="input-group-text">Time</i></div>
+                                                </div>
+                                            </div>
+
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            $('#datetimepicker1').datetimepicker({
+                                                format: 'HH:mm'
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                         
+
+
+
+                        <div class="form-group">
+                                <label for="formControlRange">Pick Time Margin (min)</label>
+                                <input name="slider_value" type="range" min="10" max="240" value="60" step="10" class="form-control-range" id="formControlMargin" onchange="updateMarginInput(this.value);">
+                              </div>
+                         
+                         
+                         
+                           <div class="form-group row">
+                            <label for="margin" class="col-sm-2 col-form-label">Margin</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="margin" placeholder="Margin" value="60">
+                            </div>
+                          </div>
+                         
+                         
+                         
+
+                         
+
+                         
+                          </form> 
+                          
+                          <div class="form-group row">
+                            <div class="col-sm-10">
+                              <button onclick="apiFunction()" class="btn btn-primary">Go!</button>
+                            </div>
+                          </div>
+                        
+              
+            
+        </div>
+        <div class="col text-center">
+        
+         
+          <div class="card mt-8"> </div>
+          
+                        <div class="card mt-5" style="width: 550px; height: 150px">
+                          <div class="card-header">
+                            API request
+                          </div>
+                          <div class="card-body">
+                           
+                            <p id="api_req" class="card-text">API request will appear here</p>
+                           
+                          </div>
+                        </div>
+
+
+                        <div class="card mt-2" style="width: 550px"> 
+                          <div class="card-header">
+                            API response
+                          </div>
+                          <div class="card-body">
+                     
+                            <p id="api_resp" class="card-text">API response will appear here</p>
+                           
+                          </div>
+                        </div>
+          
+          
+                                  <div class="card mt-2" style="width: 550px"> <!-- ; height: 350px -->
+                          <div class="card-header">
+                            Response interpretation
+                          </div>
+                          <div class="card-body">
+                            <p id="r1" class="card-text">Execute API call to see interpretation</p>
+                          
+                          </div>
+                        </div>
+          
+        </div>
+      </div>
+   </div>  
+  </div>
+
+
+
+
+
+  
+  <script>
+  // update form values from sliders
+  function updateRadiusInput(val) {
+          document.getElementById('radius').value=val; 
+        }
+        
+    function updateMarginInput(val) {
+          document.getElementById('margin').value=val; 
+        }
+  </script>
+  
+  
+    <script>
+        function apiFunction() {
+        var lt = document.getElementById('lat').value
+        var ln = document.getElementById('lon').value
+        var rd = document.getElementById('radius').value
+        var mr = document.getElementById('margin').value
+
+        var apiURL = window.location.href+"api?LAT="+lt+"&LON="+ln+"&RADIUS="+rd+"&TIME="+getMsSinceMidnight(document.getElementById("dtp").value)+"&MARGIN="+mr;
+          document.getElementById("api_req").innerHTML = apiURL;
+        $( "#api_resp" ).load(apiURL);  
+        
+        
+        
+        fetch(apiURL)
+        .then(res => res.json())
+        .then((out) => {
+           // console.log('Output: ', out);
+            //console.log(out[1]);
+            // add things to interpreted output
+            
+            document.getElementById("r1").innerHTML = "<h4>Historical geo-temporal risks for pedestrian crashes in your area at "+document.getElementById("dtp").value+" (+/-)"+mr+" min:</h4>";
+            $("#r1").append("Number of pedestrians struck on road: "+ out[0].Struck_pedestrian_On_Road);
+            $("#r1").append("<br>Number of pedestrians struck off road: "+ out[0].Struck_pedestrian_Off_Road);
+            $("#r1").append("<br>Number of fatal incidents: "+ out[0].Fatal);
+            $("#r1").append("<br>Number of non-fatal injuries: "+ out[0].Injury);
+            $("#r1").append("<br>Number of incidents with property damage only: "+ out[0].Property_Damage_Only);
+            $("#r1").append("<br>Collisions with parked vehicle: "+ out[0].Collision_with_parked_vehicle);
+            $("#r1").append("<br>Side-swipes in opposite directions: "+ out[0].Opposite_direction_side_swipe);
+            $("#r1").append("<br>Number vehicle-to-vehicle incidents: "+ out[0].Other__Vehicle_to_Vehicle);            
+            $("#r1").append("<br>Number of incidents with right-angle collision: "+ out[0].Right_angle_collision);
+            $("#r1").append("<br>Number of incidents involing right-turn into oncoming traffic: "+ out[0].Right_turn_into_oncoming_vehicle);
+            
+             // try interpret summary for cyclists if it exists
+      
+              try {
+              //
+              var test_case = out[1].Injury;
+              $("#r1").append("<hr><h4>Historical geo-temporal risks for cyclist crashes in your area at "+document.getElementById("dtp").value+" (+/-)"+mr+" min:</h4>");
+              $("#r1").append("Number of injuries: "+ out[1].Injury);
+              $("#r1").append("<br>Number of fatalities: "+ out[1].Fatal);
+              $("#r1").append("<br>Number of incidents involving property damage only: "+ out[1].Property_Damage_Only);
+              
+              
+              $("#r1").append("<br>Head-on collisions: "+ out[1].Head_on_collision);
+              
+              $("#r1").append("<br>Rear-end collisions: "+ out[1].Rear_end_collision);
+              $("#r1").append("<br>Right-angle collisions: "+ out[1].Right_angle_collision);
+              
+              $("#r1").append("<br>Right turns into oncoming vehicle: "+ out[1].Right_turn_into_oncoming_vehicle);
+              $("#r1").append("<br>Same direction side-swipes: "+ out[1].Same_direction_side_swipe);
+              
+              //"Collision_while_one_vehicle_reversing":0,
+              //"Collision_with_parked_vehicle":0,
+              //"Fall_from_moving_vehicle_On_Road":0,
+      
+              //"Opposite_direction_side_swipe":0,
+              //"Other__Vehicle_to_Vehicle":0,
+              //"Other___Single_Vehicle_On_Road":0,
+              //"Overturned_Off_Road":0,
+              //"Overturned_On_Road":0,
+              
+              //"Struck_animal_not_ridden_On_Road":0,
+              //"Struck_object_Off_Road":0,
+              //"Struck_object__On_Road":0,
+              //"Struck_pedestrian_Off_Road":0,
+              //"Struck_pedestrian_On_Road":0}
+              
+              
+              }
+              catch {
+              console.log("There is something wrong with data on cyclist crashes...");
+              //
+              }
+            
+            
+            $("#r1").append("<hr><h4>Current weather conditions:</h4><br>Current temperature: "+ out[2].temperature + " C");
+            $("#r1").append("<br>Feels like: "+ out[2].apparent_temperature + " C");
+            $("#r1").append("<br>Rain since 9 am: "+ out[2].rainsince9am + " mm");
+            $("#r1").append("<br>Wind speed: "+ out[2].wind_spd_kmh + " km/h");
+            $("#r1").append("<br>Wind direction: "+ out[2].wind_dir + " ");
+            $("#r1").append("<br>Wind gusts: "+ out[2].wind_gust_kmh + " km/h");
+            
+            $("#r1").append("<br>Atmospheric pressure: "+ out[2].press_qnh + " hPa");
+            
+            $("#r1").append("<br>Relative humidity: "+ out[2].rel_humidity + " %");
+            $("#r1").append("<br>Dew point: "+ out[2].dew_point + " C");
+            $("#r1").append("<br>Observation date/time: "+ out[2].update_datetime + " ");
+            
+            
+  
+
+            
+        }).catch(err => console.error(err));
+
+            
+        }   
+    </script>
+  
+  
+  <script>
+  function getMsSinceMidnight(d) {
+        var hms = d
+        var a = hms.split(':')
+        var minutes = (+a[0]) * 60 + (+a[1]);
+     return minutes.toString()
+    }  
+  </script>
+  
+  
+  
+  <script>
+  // draw leaflet
+    var map = L.map('mapid').setView([-35.28, 149.128], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+    // update on click
+    map.on('click', function(e) {
+      updater(e);
+    });
+    //put marker + update coordinates
+    var layerGroup = L.layerGroup().addTo(map);
+    function updater(e) {
+      var x = e.layerPoint.x;
+      var y = e.layerPoint.y;
+      document.getElementById("lat").innerHTML = x;
+      document.getElementById("lon").innerHTML = y;
+      var pointXY = L.point(x, y);
+      var pointlatlng = map.layerPointToLatLng(pointXY); 
+      layerGroup.clearLayers();
+      var marker = L.marker([pointlatlng.lat, pointlatlng.lng]).addTo(layerGroup);
+      document.getElementById("lat").value = pointlatlng.lat;
+      document.getElementById("lon").value = pointlatlng.lng;
+      
+      
+     // console.log(document.getElementById("dtp").value);
+      //console.log(getMsSinceMidnight(document.getElementById("dtp").value));
+      
+    }
+  </script>
+  
+
+</body>
+
+</html>

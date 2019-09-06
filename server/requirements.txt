@@ -6,4 +6,6 @@ MarkupSafe==1.0
 Werkzeug==0.14.1
 pandas==0.25.1
 haversine==2.1.2
-
+Flask_Limiter==1.0.1
+beautifulsoup4==4.8.0
+lxml==4.4.1
