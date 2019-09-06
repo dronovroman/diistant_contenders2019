@@ -64,8 +64,10 @@
   
       <div class="row">
         <div class="col text-center">
-              <h1 class="mt-5">Please test our API here and use it in our CAS2029 mobile app!</h1>
-              <p class="lead">Use your mobile device for assistance on situational awareness and risks in your area, at your time of the day. Your phone will warn you if you venture into a dangerous place at a dengerous time. Using a smart computer vision algorithm, your phone will help you spot danger in real time as you are riding, and will warn you if you are approaching dangerous (as deemed by analysis of historical data by CAS2029 API!) objects!  </p>
+              <h1 class="mt-5">Please test CAS2029 API here. Best used alongside CAS2029 mobile app!</h1>
+              <p class="lead">We believe that the future of personal transportation in 2029 in Canberra will be cycling! And in 2029 people will use diverse open data to make it as safe as possible. This is our concept implemented using 2019 technology. As you ride a bike, your mobile device runs a client app that periodically checks with this server on your location (within a set radius) and time of the day (within a set margin). The server filters historical pedestrian and cyclists crashes at that point of space and time based on your live location. It provides a statistical summary of crash events in your area as you move, as well as weather conditions from BOM that could affect cyclist safety... Our API server data is updated daily from ACT SODA APIs and every 30 min from the Bureau of meteorology data feed.
+Statistics on historical crash events around you and their severity (injuries/fatalities/property damage) can be used for smart object detection and interpretation on your mobile device that will issue voice prompts as you cycle around Canberra.
+  </p>
               
               <p class="lead">Pick coordinates on the map</p>
               <div id="mapid" style="height: 300px"></div>
