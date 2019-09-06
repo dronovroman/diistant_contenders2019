@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Created on Fri Sep  6 22:55:01 2019
 
@@ -47,5 +46,3 @@ def home():
 def api():
     return "api response"
 
-if __name__ == "__main__":
-    app.run(debug = False)  
