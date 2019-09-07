@@ -7,7 +7,7 @@
  <!-- Video and communication from CAS29 -->
   <div class="container">
 
-      <div class="row">
+      <div class="row row-eq-height">
 
           <div class="col-sm-12 text-center">
             <h1 class="mt-5"></h1>
@@ -16,29 +16,27 @@
 
           <div class="col-sm-1 text-center"></div>
 
-          <div class="col-sm-4 text-left">
-
-              <p>
-                  V I D E O   G O E S   H E R E  <br><br>
-                  Let's embed a short 5 second video of someone (maybe one of us?) cycling. <br><br>
-                  First person GoPro view preferred.
-                  <br><br><br><br><br><br><br>
-              </p>
+          <div class="col-sm-6 text-left">
+              <iframe width="560px" height="315px" src="https://www.youtube.com/embed/kotWv4MCxNI?autoplay=1&mute=1&enablejsapi=1" frameborder="0"></iframe>
+              <br><br><br><br><br>
           </div>
 
-          <div class="col-sm-2 text-center"></div>
+          <div class="col-sm-4 text-right">
 
-          <div class="col-sm-4 text-left">
-              <p>
-                  <span id="cas0"></span><br>
+                  <div class="mine messages">
+                      <div class="message last">
+                          <span id="cas0" class="chat-container"></span><br><br><br>
+                      </div>
+                  </div>
+
+
+                  <span id="cas1"></span><br><br>
                   <br>
-                  <span id="cas1"></span><br>
+                  <span id="cas2"></span><br><br>
                   <br>
-                  <span id="cas2"></span><br>
+                  <span id="cas3"></span><br><br>
                   <br>
-                  <span id="cas3"></span><br>
-                  <br>
-              </p>
+
           </div>
 
           <div class="col-sm-1 text-center"></div>
@@ -57,19 +55,17 @@
 
           <div class="col-sm-4 text-left">
               <p>
-                  <span id="cas4"></span><br>
+                  <span id="cas4"></span><br><br>
                   <br>
-                  <span id="cas5"></span><br>
+                  <span id="cas5"></span><br><br>
                   <br>
-                  <span id="cas6"></span><br>
+                  <span id="cas6"></span><br><br>
                   <br>
-                  <span id="cas7"></span><br>
+                  <span id="cas7"></span><br><br>
               </p>
           </div>
 
-          <div class="col-sm-2 text-center"></div>
-
-          <div class="col-sm-4 text-center">
+          <div class="col-sm-6 text-center">
               <p>
                   M A P   G O E S   H E R E <br>
                   We'll do an API call here from the user's IP address and bring their current location up on a map.
@@ -88,7 +84,7 @@
 
 <script>
 
-    var cas29msg = ["Hi! I'm CAS29.", "I keep you safe on the road.", "I live on your phone.", "Let's say you're cycling here:", "I monitor your location as your ride...", "...and send you real-time updates about safety issues close by.", "Did you know that in the past 12 months there have been two accidents involving cyclists at this roundabout?", "Better keep an eye out and be extra careful!"];
+    var cas29msg = ["Hi! I'm CAS29.", "I live on your phone...", "...and I keep you safe on the road.", "Let's say you're cycling here:", "I monitor your location as your ride...", "...and send you real-time updates about safety issues close by.", "Did you know that in the past 12 months there have been two accidents involving cyclists at this roundabout?", "Better keep an eye out and be extra careful!"];
     var timeBetween = 70;
     var i;
 
