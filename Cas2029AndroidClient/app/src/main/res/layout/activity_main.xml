@@ -1,18 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="20dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="20dp"
+    android:background="@color/colorPrimaryDark"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/shield" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/textView_style"
+                    android:text="CBR co-pilot" />
+
+                <Button
+                    android:id="@+id/button3"
+                    style="@style/button_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="ABOUT" />
+
+                <TextView
+                    android:id="@+id/textViewURL"
+                    style="@style/textView_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="API URL" />
+
+                <EditText
+                    android:id="@+id/editTextURL"
+                    style="@style/editText_style"
+                    android:hint="API URL"
+                    android:inputType="text"
+                    android:text="http://jsonplaceholder.typicode.com/comments" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/textView_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="UPDATE TIMER" />
+
+                <EditText
+                    android:id="@+id/editText"
+                    style="@style/editText_style"
+                    android:hint="update timer, seconds"
+                    android:inputType="textEmailAddress"
+                    android:text="2" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    style="@style/textView_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="AREA RADIUS TO ANALYSE" />
+
+                <EditText
+                    android:id="@+id/editText8"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="radius in meters"
+                    android:inputType="textEmailAddress"
+                    android:text="500"/>
+
+                <TextView
+                    android:id="@+id/textView12"
+                    style="@style/textView_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TIME INTERVAL TO ANALYSE" />
+
+                <EditText
+                    android:id="@+id/editText9"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="time interval in minutes"
+                    android:inputType="textEmailAddress"
+                    android:text="60" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    style="@style/textView_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MODEL CONFIGURATION" />
+
+                <EditText
+                    android:id="@+id/editText6"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="model config file"
+                    android:inputType="textEmailAddress"
+                    android:text="/model/yolov3cbr.cfg" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    style="@style/textView_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MODEL WEIGHTS" />
+
+                <EditText
+                    android:id="@+id/editText7"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="model weights file"
+                    android:inputType="textEmailAddress"
+                    android:text="/model/yolov3cbr.weights" />
+
+                <Button
+                    android:id="@+id/buttonApply"
+                    style="@style/button_style"
+                    android:layout_marginTop="10dp"
+                    android:text="Start Analysis"
+                    android:onClick="btnStartAnalysis"/>
+
+                <TextView
+                    android:id="@+id/textViewLAT"
+                    style="@style/textView_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:text="LAT" />
+
+                <EditText
+                    android:id="@+id/editTextLAT"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:hint="LAT"
+                    android:inputType="textEmailAddress" />
+
+                <TextView
+                    android:id="@+id/textViewLON"
+                    style="@style/textView_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:text="LON" />
+
+                <EditText
+                    android:id="@+id/editTextLON"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:hint="LON"
+                    android:inputType="textEmailAddress" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/textView_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:text="RISK COMPONENT 1" />
+
+                <EditText
+                    android:id="@+id/editText4"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:hint="waiting for API..."
+                    android:inputType="textEmailAddress" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    style="@style/textView_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="RISK COMPONENT 2" />
+
+                <EditText
+                    android:id="@+id/editText5"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:hint="waiting for API..."
+                    android:inputType="textEmailAddress" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    style="@style/textView_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="VOICE PROMPTS" />
+
+                <Switch
+                    android:theme="@style/SwitchTheme"
+                    android:id="@+id/voice_switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="OFF" />
+
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/button_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Start" />
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

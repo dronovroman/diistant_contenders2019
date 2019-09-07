@@ -168,36 +168,36 @@ def check(df, PARAMS):
     
     
 @app.route("/", methods=['GET'])
-#@Limiter.limit("60 per minute") 
+@Limiter.limit("60 per minute") 
 def home():
     #pass
     return render_template('index.html')
 
 
 @app.route("/test", methods=['GET'])
-#@Limiter.limit("60 per minute")
+@Limiter.limit("60 per minute")
 def test():
     #pass
     return render_template('test.html')
 
 
 @app.route("/about", methods=['GET'])
-#@Limiter.limit("60 per minute")
+@Limiter.limit("60 per minute")
 def about():
     #pass
     return render_template('about.html')
 
 
 @app.route("/contact", methods=['GET'])
-#@Limiter.limit("60 per minute")
+@Limiter.limit("60 per minute")
 def contact():
     #pass
     return render_template('contact.html')
     
  
 
-@app.route("/api", methods = ['GET']) 
-#@limiter.limit("60 per minute") 
+@app.route("/testapi", methods = ['GET']) 
+@limiter.limit("60 per minute") 
 def api():
     t_start=time.time() 
     global df 
@@ -349,16 +349,16 @@ def close_threads():
     
     
 
-if __name__ == "__main__":
-    atexit.register(close_threads)
-    CrashApiCall()
-    CCCrashApiCall()
-    BoMApiCall()
-    print(__doc__)
-    print('pedestrian crash data:', len(crash_df))
-    print('cyclist crash data:', len(crash_df_cc))
-    init_params ()
-    df = prepare_df()
-    dfcc=prepare_dfcc()
-    app.run(debug = False)
+
+atexit.register(close_threads)
+CrashApiCall()
+CCCrashApiCall()
+BoMApiCall()
+print(__doc__)
+print('pedestrian crash data:', len(crash_df))
+print('cyclist crash data:', len(crash_df_cc))
+init_params ()
+df = prepare_df()
+dfcc=prepare_dfcc()
+
 
