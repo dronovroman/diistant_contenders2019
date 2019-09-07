@@ -7,41 +7,49 @@
  <!-- Video and communication from CAS29 -->
   <div class="container">
 
-      <div class="row">
+      <div class="row row-eq-height">
 
           <div class="col-sm-12 text-center">
             <h1 class="mt-5"></h1>
             <br><br>
           </div>
 
-          <div class="col-sm-2 text-center"></div>
+          <div class="col-sm-1 text-center"></div>
 
-          <div class="col-sm-4 text-left">
-
-              <p>
-                  V I D E O   G O E S   H E R E  <br>
-                  Let's embed a short 5 second video of someone (maybe one of us?) cycling. <br>
-                  First person GoPro view preferred.
-                  <br><br><br><br><br><br><br>
-              </p>
+          <div class="col-sm-6 text-left">
+              <iframe width="560px" height="315px" src="https://www.youtube.com/embed/kotWv4MCxNI?autoplay=1&mute=1&enablejsapi=1" frameborder="0"></iframe>
+              <br><br><br><br><br>
           </div>
 
-          <div class="col-sm-4 text-left">
-              <p>
-                  Over here I'll load some test on a 1 second delay so it looks like messages coming in from CAS29.
-                  <br><br>
-                  "Hi, I'm CAS29."
-                  <br>
-                  "I keep you safe on the road."
-                  <br>
-                  "I live on your phone."
-                  <br>
-                  "Let's say you're cycling here..."
-                  <br>
-              </p>
+          <div class="col-sm-4 text-right">
+
+              <div id="divcas0" class="mine messages" style="visibility: hidden">
+                  <div class="message last">
+                      <span id="cas0"></span>
+                  </div>
+              </div>
+
+              <div id="divcas1" class="mine messages" style="visibility: hidden">
+                  <div class="message last">
+                      <span id="cas1"></span>
+                  </div>
+              </div>
+
+              <div id="divcas2" class="mine messages" style="visibility: hidden">
+                  <div class="message last">
+                      <span id="cas2"></span>
+                  </div>
+              </div>
+
+              <div id="divcas3" class="mine messages" style="visibility: hidden">
+                  <div class="message last">
+                      <span id="cas3"></span>
+                  </div>
+              </div>
+
           </div>
 
-          <div class="col-sm-2 text-center"></div>
+          <div class="col-sm-1 text-center"></div>
 
       </div>
 
@@ -53,21 +61,43 @@
 
       <div class="row">
 
-          <div class="col-sm-2 text-center"></div>
+          <div class="col-sm-1 text-center"></div>
 
           <div class="col-sm-4 text-left">
-              <p>
-                  "I monitor your location as your ride..."
-                  <br>
-                  "...and send you real-time updates about safety issues close by."
-                  <br>
-                  "Let's say there have been two accidents at this roundabout in the past 12 months."
-                  <br>
-                  "I'll let you know to keep an eye out and be extra careful."
-              </p>
+
+              <div id="divcas4" class="mine messages" style="visibility: hidden">
+                  <div class="message last">
+                      <span id="cas4"></span>
+                  </div>
+              </div>
+
+              <div id="divcas5" class="mine messages" style="visibility: hidden">
+                  <div class="message last">
+                      <span id="cas5"></span>
+                  </div>
+              </div>
+
+              <div id="divcas6" class="mine messages" style="visibility: hidden">
+                  <div class="message last">
+                      <span id="cas6"></span>
+                  </div>
+              </div>
+
+              <div id="divcas7" class="mine messages" style="visibility: hidden">
+                  <div class="message last">
+                      <span id="cas7"></span>
+                  </div>
+              </div>
+
+              <div id="divcas8" class="mine messages" style="visibility: hidden">
+                  <div class="message last">
+                      <span id="cas8"></span>
+                  </div>
+              </div>
+
           </div>
 
-          <div class="col-sm-4 text-center">
+          <div class="col-sm-6 text-center">
               <p>
                   M A P   G O E S   H E R E <br>
                   We'll do an API call here from the user's IP address and bring their current location up on a map.
@@ -76,12 +106,41 @@
               </p>
           </div>
 
-          <div class="col-sm-2 text-center"></div>
+          <div class="col-sm-1 text-center"></div>
 
       </div>
 
   </div>
 
+
+
+<script>
+
+    var cas29msg = ["Hi! I'm CAS29.", "I live on your phone...", "...and I keep you safe on the road.", "Let's say you're cycling here:", "I monitor your location as your ride...", "...and send you real-time updates about safety issues close by.", "Did you know that in the past 12 months there have been...", "two accidents involving cyclists at this roundabout?", "Better keep an eye out and be extra careful!"];
+    var timeBetween = 70;
+    var i;
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    window.onload = async function casFirst() {
+        await sleep(cas29msg[0].length * timeBetween);
+        document.getElementById("cas0").innerHTML = cas29msg[0];
+        document.getElementById("divcas0").style.visibility='visible';
+        window.setTimeout(msg, cas29msg[1].length * timeBetween);
+    }
+
+    async function msg() {
+        for (let i = 1; i < cas29msg.length; i++) {
+            await sleep(cas29msg[i].length * timeBetween);
+            document.getElementById("cas"+i).innerHTML = cas29msg[i];
+            document.getElementById("divcas"+i).style.visibility='visible';
+        }
+    }
+
+
+</script>
 
 
 {% endblock %}
