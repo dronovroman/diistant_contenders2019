@@ -82,7 +82,7 @@ def CrashApiCall():
 
 
 
-# thread for loading data from cyclist SODA API
+# thread for loading data from cyclist SODA API...       
 def CCCrashApiCall():
     """
     Updates crash data from pedestrian SODA API
@@ -168,28 +168,29 @@ def check(df, PARAMS):
     
     
 @app.route("/", methods=['GET'])
-@Limiter.limit("60 per minute") 
+@limiter.limit("60 per minute") 
 def home():
     #pass
+    
     return render_template('index.html')
 
 
 @app.route("/test", methods=['GET'])
-@Limiter.limit("60 per minute")
+@limiter.limit("60 per minute")
 def test():
     #pass
     return render_template('test.html')
 
 
 @app.route("/about", methods=['GET'])
-@Limiter.limit("60 per minute")
+@limiter.limit("60 per minute")
 def about():
     #pass
     return render_template('about.html')
 
 
 @app.route("/contact", methods=['GET'])
-@Limiter.limit("60 per minute")
+@limiter.limit("60 per minute")
 def contact():
     #pass
     return render_template('contact.html')
