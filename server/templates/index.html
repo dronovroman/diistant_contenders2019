@@ -14,34 +14,34 @@
             <br><br>
           </div>
 
-          <div class="col-sm-2 text-center"></div>
+          <div class="col-sm-1 text-center"></div>
 
           <div class="col-sm-4 text-left">
 
               <p>
-                  V I D E O   G O E S   H E R E  <br>
-                  Let's embed a short 5 second video of someone (maybe one of us?) cycling. <br>
+                  V I D E O   G O E S   H E R E  <br><br>
+                  Let's embed a short 5 second video of someone (maybe one of us?) cycling. <br><br>
                   First person GoPro view preferred.
                   <br><br><br><br><br><br><br>
               </p>
           </div>
 
+          <div class="col-sm-2 text-center"></div>
+
           <div class="col-sm-4 text-left">
               <p>
-                  Over here I'll load some test on a 1 second delay so it looks like messages coming in from CAS29.
-                  <br><br>
-                  "Hi, I'm CAS29."
+                  <span id="cas0"></span><br>
                   <br>
-                  "I keep you safe on the road."
+                  <span id="cas1"></span><br>
                   <br>
-                  "I live on your phone."
+                  <span id="cas2"></span><br>
                   <br>
-                  "Let's say you're cycling here..."
+                  <span id="cas3"></span><br>
                   <br>
               </p>
           </div>
 
-          <div class="col-sm-2 text-center"></div>
+          <div class="col-sm-1 text-center"></div>
 
       </div>
 
@@ -57,13 +57,13 @@
 
           <div class="col-sm-4 text-left">
               <p>
-                  "I monitor your location as your ride..."
+                  <span id="cas4"></span><br>
                   <br>
-                  "...and send you real-time updates about safety issues close by."
+                  <span id="cas5"></span><br>
                   <br>
-                  "Let's say there have been two accidents at this roundabout in the past 12 months."
+                  <span id="cas6"></span><br>
                   <br>
-                  "I'll let you know to keep an eye out and be extra careful."
+                  <span id="cas7"></span><br>
               </p>
           </div>
 
@@ -82,6 +82,31 @@
 
   </div>
 
+
+
+<script>
+
+    var cas29msg = ["Hi! I'm CAS29.", "I keep you safe on the road.", "I live on your phone.", "Let's say you're cycling here...", "I monitor your location as your ride...", "...and send you real-time updates about safety issues close by.", "Did you know that in the past 12 months there have been two accidents involving cyclists at this roundabout?", "Better keep an eye out and be extra careful!"];
+    var timeBetween = 10;
+    var i;
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    window.onload = function casFirst() {
+        document.getElementById("cas0").innerHTML = cas29msg[0];
+        window.setTimeout(cas29msg, 1000);
+    }
+
+    async function cas29msg() {
+        for (let i = 1; i < cas29msg.length + 1; i++) {
+            await sleep(cas29msg[i].length * timeBetween);
+            document.getElementById(cas1).innerHTML = cas29msg[i];
+        }
+    }
+
+</script>
 
 
 {% endblock %}

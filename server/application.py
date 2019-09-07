@@ -349,6 +349,9 @@ def close_threads():
         print('Could not close cyclist SODA API thread...')
     
     
+if __name__ == '__main__':
+    app.run()
+
 
 
 atexit.register(close_threads)
