@@ -98,12 +98,9 @@
           </div>
 
           <div class="col-sm-6 text-center">
-              <p>
-                  M A P   G O E S   H E R E <br>
-                  We'll do an API call here from the user's IP address and bring their current location up on a map.
-                  <br>
-                  We'll show a map of their location just we do in the 'Test' page.
-              </p>
+
+              <div id="mapid" style="height: 560px, width: 315px"></div>
+
           </div>
 
           <div class="col-sm-1 text-center"></div>
@@ -141,6 +138,15 @@
 
 
 </script>
+
+
+  <script>
+  // draw leaflet
+    var map = L.map('mapid').setView([-35.28, 149.128], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+    }
+  </script>
 
 
 {% endblock %}
