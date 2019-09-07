@@ -4,31 +4,71 @@
 
 
 
-  <!-- Page Content -->
+  <!-- Header Section -->
+  <div class="container">
+
+      <div class="row">
+
+          <div class="col-sm-2 text-center"></div>
+
+          <div class="col-sm-8 text-left">
+
+              <h1 class="mt-5">Ready to take CAS2029 for a spin?</h1>
+              <br><br>
+              <p>
+                  CAS29 is a mobile app that notifies you of safety issues as you ride.
+              </p>
+              <p>
+                  Pick coordinates on the map below to simulate your location:
+              </p>
+              <br><br>
+
+              <div class="col-sm-2 text-center"></div>
+
+          </div>
+
+      </div>
+
+  </div>
+
+
+
+  <!-- Map -->
   <div class="container">
   
       <div class="row">
-        <div class="col text-center">
-              <h1 class="mt-5">Please test CAS2029 API here. Best used alongside CAS2029 mobile app!</h1>
-              <p class="lead">We believe that the future of personal transportation in 2029 in Canberra will be cycling!
-                  And in 2029 people will use diverse open data to make it as safe as possible.
-                  This is our concept implemented using 2019 technology.
-                  As you ride a bike, your mobile device runs a client app that periodically checks with this server on your location (within a set radius) and time of the day (within a set margin).
-                  The server filters historical pedestrian and cyclists crashes at that point of space and time based on your live location.
-                  It provides a statistical summary of crash events in your area as you move, as well as weather conditions from BOM that could affect cyclist safety... Our API server data is updated daily from ACT SODA APIs and every 30 min from the Bureau of meteorology data feed.
-Statistics on historical crash events around you and their severity (injuries/fatalities/property damage) can be used for smart object detection and interpretation on your mobile device that will issue voice prompts as you cycle around Canberra.
-  </p>
-              
-              <p class="lead">Pick coordinates on the map</p>
+
+          <div class="col-sm-2 text-center"></div>
+
+          <div class="col-sm-8 text-center">
               <div id="mapid" style="height: 300px"></div>
-               <hr>
-               <h3>Where</h3>
+          </div>
+
+          <div class="col-sm-2 text-center"></div>
+
+      </div>
+
+  </div>
+
+
+  <!-- Form -->
+  <div class="container">
+
+      <div class="row">
+
+          <div class="col-sm-2 text-center"></div>
+
+          <div class="col-sm-4 text-left">
+
+              <hr>
+              <h4>Where</h4>
+
                          <form>
 
                           <div class="form-group row mt-3">
-                            <label for="lat" class="col-sm-2 col-form-label">Lattitude</label>
+                            <label for="lat" class="col-sm-2 col-form-label">Latitude</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="lat" placeholder="Lattitude" value="-35.3">
+                              <input type="text" class="form-control" id="lat" placeholder="Latitude" value="-35.3">
                             </div>
                           </div>
                           
@@ -44,19 +84,18 @@ Statistics on historical crash events around you and their severity (injuries/fa
                                 <label for="formControlRange">Pick Radius (km)</label>
                                 <input name="slider_value" type="range" min="0.5" max="10" value="1" step="0.5" class="form-control-range" id="formControlRange" onchange="updateRadiusInput(this.value);">
                               </div>
-                         
-                         
-                         
+
+
                            <div class="form-group row">
                             <label for="radius" class="col-sm-2 col-form-label">Radius</label>
                             <div class="col-sm-10">
                               <input type="text" class="form-control" id="radius" placeholder="Radius" value="1">
                             </div>
-                          </div>                        
-                         
+                          </div>
 
-                         <hr>
-               <h3>When</h3>
+                             <hr>
+
+               <h4>When</h4>
                          
                                    <div class="form-group row">
                     
@@ -94,22 +133,23 @@ Statistics on historical crash events around you and their severity (injuries/fa
                             </div>
                           </div>
                          
-                         
-                         
-
-                         
 
                          
                           </form> 
-                          
-                          <div class="form-group row">
-                            <div class="col-sm-10">
-                              <button onclick="apiFunction()" class="btn btn-primary">Go!</button>
-                            </div>
-                          </div>
-                        
-              
-            
+
+              <div class="form-group row">
+                <div class="col-sm-10 text-center">
+                    <button onclick="apiFunction()" class="btn btn-success">Go!</button>
+                </div>
+              </div>
+
+          </div>
+
+
+          <div class="col-sm-2 text-center"></div>
+
+
+
         </div>
         <div class="col text-center">
         
