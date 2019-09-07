@@ -66,7 +66,7 @@
                     style="@style/textView_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="UPDATE TIMER (s)" />
+                    android:text="API CALL TIMER (s)" />
 
                 <EditText
                     android:id="@+id/editText"
@@ -105,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:hint="time interval in minutes"
                     android:inputType="textEmailAddress"
-                    android:text="60" />
+                    android:text="120" />
 
                 <TextView
                     android:id="@+id/textView8"
