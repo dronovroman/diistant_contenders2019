@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.content.Intent;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -44,8 +45,15 @@ public class MainActivity extends AppCompatActivity {
         urldata = findViewById(R.id.editTextURL);
         varLAT = findViewById(R.id.editTextLAT);
         varLON = findViewById(R.id.editTextLON);
-
         varRAD = findViewById(R.id.editText8);
+        Button button2 = (Button) findViewById(R.id.button2);
+
+        button2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                openActivity2();
+            }
+        });
 
         final EditText eTextLAT = (EditText) findViewById(R.id.editTextLAT);
         final EditText eTextLON = (EditText) findViewById(R.id.editTextLON);
@@ -142,7 +150,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    public void openActivity2() {
+        Intent intent = new Intent (this, Activity2.class);
+        startActivity(intent);
+    }
 
 
     public void btnStartAnalysis(View view){
