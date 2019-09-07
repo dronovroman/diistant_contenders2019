@@ -97,9 +97,9 @@
 
           </div>
 
-          <div class="col-sm-6 text-center">
+          <div class="col-sm-6 text-center" id="embedded-map">
 
-              <div id="mapid" style="height: 560px, width: 315px"></div>
+              <iframe width="560" height="560" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=149.08696174621585%2C-35.32408937278182%2C149.17442321777347%2C-35.27400328507705&amp;layer=mapnik&amp;marker=-35.299015178614454%2C149.13073539733887" style="border: none"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=-35.2990&amp;mlon=149.1307#map=14/-35.2991/149.1307"></a></small>
 
           </div>
 
@@ -113,9 +113,12 @@
 
 <script>
 
-    var cas29msg = ["Hi! I'm CAS29.", "I live on your phone...", "...and I keep you safe on the road.", "Let's say you're cycling here:", "I monitor your location as your ride...", "...and send you real-time updates about safety issues close by.", "Did you know that in the past 12 months there have been...", "two accidents involving cyclists at this roundabout?", "Better keep an eye out and be extra careful!"];
+    var cas29msg = ["Hi! I'm CAS29.", "I live on your phone...", "...and I keep you safe on the road.", "Let's say you're cycling here:", "I monitor your location as you ride...", "...and send you real-time updates about safety issues close by.", "Did you know that in the past 12 months there have been...", "two accidents involving cyclists at this roundabout?", "Better keep an eye out and be extra careful!"];
     var timeBetween = 70;
     var i;
+
+    const scrollPoint = document.getElementById('embedded-map');
+    const yCoord = scrollPoint.getBoundingClientRect().top + window.pageYOffset;
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -130,6 +133,12 @@
 
     async function msg() {
         for (let i = 1; i < cas29msg.length; i++) {
+            if (i === 5) {
+                window.scrollTo({
+                    top: yCoord,
+                    behaviour: 'smooth'
+                });
+            }
             await sleep(cas29msg[i].length * timeBetween);
             document.getElementById("cas"+i).innerHTML = cas29msg[i];
             document.getElementById("divcas"+i).style.visibility='visible';
@@ -139,14 +148,6 @@
 
 </script>
 
-
-  <script>
-  // draw leaflet
-    var map = L.map('mapid').setView([-35.28, 149.128], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
-    }
-  </script>
 
 
 {% endblock %}
