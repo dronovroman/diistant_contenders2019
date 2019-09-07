@@ -4,155 +4,83 @@
 
 
 
-  <!-- Page Content -->
+ <!-- Video and communication from CAS29 -->
   <div class="container">
-  
+
       <div class="row">
-        <div class="col text-center">
-              <h1 class="mt-5">Please test CAS2029 API here. Best used alongside CAS2029 mobile app!</h1>
-              <p class="lead">We believe that the future of personal transportation in 2029 in Canberra will be cycling!
-                  And in 2029 people will use diverse open data to make it as safe as possible.
-                  This is our concept implemented using 2019 technology.
-                  As you ride a bike, your mobile device runs a client app that periodically checks with this server on your location (within a set radius) and time of the day (within a set margin).
-                  The server filters historical pedestrian and cyclists crashes at that point of space and time based on your live location.
-                  It provides a statistical summary of crash events in your area as you move, as well as weather conditions from BOM that could affect cyclist safety... Our API server data is updated daily from ACT SODA APIs and every 30 min from the Bureau of meteorology data feed.
-Statistics on historical crash events around you and their severity (injuries/fatalities/property damage) can be used for smart object detection and interpretation on your mobile device that will issue voice prompts as you cycle around Canberra.
-  </p>
-              
-              <p class="lead">Pick coordinates on the map</p>
-              <div id="mapid" style="height: 300px"></div>
-               <hr>
-               <h3>Where</h3>
-                         <form>
 
-                          <div class="form-group row mt-3">
-                            <label for="lat" class="col-sm-2 col-form-label">Lattitude</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="lat" placeholder="Lattitude" value="-35.3">
-                            </div>
-                          </div>
-                          
-                          
-                          <div class="form-group row">
-                            <label for="lon" class="col-sm-2 col-form-label">Longitude</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="lon" placeholder="Longitude" value="149.12">
-                            </div>
-                          </div>
-                          
-                             <div class="form-group">
-                                <label for="formControlRange">Pick Radius (km)</label>
-                                <input name="slider_value" type="range" min="0.5" max="10" value="1" step="0.5" class="form-control-range" id="formControlRange" onchange="updateRadiusInput(this.value);">
-                              </div>
-                         
-                         
-                         
-                           <div class="form-group row">
-                            <label for="radius" class="col-sm-2 col-form-label">Radius</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="radius" placeholder="Radius" value="1">
-                            </div>
-                          </div>                        
-                         
+          <div class="col-sm-12 text-center">
+            <h1 class="mt-5"></h1>
+            <br><br>
+          </div>
 
-                         <hr>
-               <h3>When</h3>
-                         
-                                   <div class="form-group row">
-                    
-                                     <label for="datetimepicker1" class="col-sm-2 col-form-label">Time</label>
-                                            <div class="input-group date col-sm-10" id="datetimepicker1" data-target-input="nearest">
-                                                <input type="text" id="dtp" class="form-control datetimepicker-input" value="17:00" data-target="#datetimepicker1"/>
-                                                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                                                    <div class="input-group-text">Time</i></div>
-                                                </div>
-                                            </div>
+          <div class="col-sm-2 text-center"></div>
 
-                                    <script type="text/javascript">
-                                        $(function () {
-                                            $('#datetimepicker1').datetimepicker({
-                                                format: 'HH:mm'
-                                            });
-                                        });
-                                    </script>
-                                </div>
-                         
+          <div class="col-sm-4 text-left">
 
+              <p>
+                  V I D E O   G O E S   H E R E  <br>
+                  Let's embed a short 5 second video of someone (maybe one of us?) cycling. <br>
+                  First person GoPro view preferred.
+                  <br><br><br><br><br><br><br>
+              </p>
+          </div>
 
+          <div class="col-sm-4 text-left">
+              <p>
+                  Over here I'll load some test on a 1 second delay so it looks like messages coming in from CAS29.
+                  <br><br>
+                  "Hi, I'm CAS29."
+                  <br>
+                  "I keep you safe on the road."
+                  <br>
+                  "I live on your phone."
+                  <br>
+                  "Let's say you're cycling here..."
+                  <br>
+              </p>
+          </div>
 
-                        <div class="form-group">
-                                <label for="formControlRange">Pick Time Margin (min)</label>
-                                <input name="slider_value" type="range" min="10" max="240" value="60" step="10" class="form-control-range" id="formControlMargin" onchange="updateMarginInput(this.value);">
-                              </div>
-                         
-                         
-                         
-                           <div class="form-group row">
-                            <label for="margin" class="col-sm-2 col-form-label">Margin</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="margin" placeholder="Margin" value="60">
-                            </div>
-                          </div>
-                         
-                         
-                         
+          <div class="col-sm-2 text-center"></div>
 
-                         
-
-                         
-                          </form> 
-                          
-                          <div class="form-group row">
-                            <div class="col-sm-10">
-                              <button onclick="apiFunction()" class="btn btn-primary">Go!</button>
-                            </div>
-                          </div>
-                        
-              
-            
-        </div>
-        <div class="col text-center">
-        
-         
-          <div class="card mt-8"> </div>
-          
-                        <div class="card mt-5" style="width: 550px; height: 150px">
-                          <div class="card-header">
-                            API request
-                          </div>
-                          <div class="card-body">
-                           
-                            <p id="api_req" class="card-text">API request will appear here</p>
-                           
-                          </div>
-                        </div>
-
-
-                        <div class="card mt-2" style="width: 550px"> 
-                          <div class="card-header">
-                            API response
-                          </div>
-                          <div class="card-body">
-                     
-                            <p id="api_resp" class="card-text">API response will appear here</p>
-                           
-                          </div>
-                        </div>
-          
-          
-                                  <div class="card mt-2" style="width: 550px"> <!-- ; height: 350px -->
-                          <div class="card-header">
-                            Response interpretation
-                          </div>
-                          <div class="card-body">
-                            <p id="r1" class="card-text">Execute API call to see interpretation</p>
-                          
-                          </div>
-                        </div>
-          
-        </div>
       </div>
-   </div>  
+
+  </div>
+
+
+ <!-- Communication from CAS29 and Map-->
+  <div class="container">
+
+      <div class="row">
+
+          <div class="col-sm-2 text-center"></div>
+
+          <div class="col-sm-4 text-left">
+              <p>
+                  "I monitor your location as your ride..."
+                  <br>
+                  "...and send you real-time updates about safety issues close by."
+                  <br>
+                  "Let's say there have been two accidents at this roundabout in the past 12 months."
+                  <br>
+                  "I'll let you know to keep an eye out and be extra careful."
+              </p>
+          </div>
+
+          <div class="col-sm-4 text-center">
+              <p>
+                  M A P   G O E S   H E R E <br>
+                  We'll do an API call here from the user's IP address and bring their current location up on a map.
+                  <br>
+                  We'll show a map of their location just we do in the 'Test' page.
+              </p>
+          </div>
+
+          <div class="col-sm-2 text-center"></div>
+
+      </div>
+
+  </div>
 
 
 

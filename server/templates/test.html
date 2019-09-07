@@ -51,148 +51,132 @@
   </div>
 
 
-  <!-- Form -->
+  <!-- Form and API Response Area -->
   <div class="container">
 
       <div class="row">
 
           <div class="col-sm-2 text-center"></div>
 
+
+          <!-- Form area -->
           <div class="col-sm-4 text-left">
 
               <hr>
               <h4>Where</h4>
 
-                         <form>
+              <form>
 
-                          <div class="form-group row mt-3">
-                            <label for="lat" class="col-sm-2 col-form-label">Latitude</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="lat" placeholder="Latitude" value="-35.3">
-                            </div>
-                          </div>
-                          
-                          
-                          <div class="form-group row">
-                            <label for="lon" class="col-sm-2 col-form-label">Longitude</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="lon" placeholder="Longitude" value="149.12">
-                            </div>
-                          </div>
-                          
-                             <div class="form-group">
-                                <label for="formControlRange">Pick Radius (km)</label>
-                                <input name="slider_value" type="range" min="0.5" max="10" value="1" step="0.5" class="form-control-range" id="formControlRange" onchange="updateRadiusInput(this.value);">
-                              </div>
-
-
-                           <div class="form-group row">
-                            <label for="radius" class="col-sm-2 col-form-label">Radius</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="radius" placeholder="Radius" value="1">
-                            </div>
-                          </div>
-
-                             <hr>
-
-               <h4>When</h4>
-                         
-                                   <div class="form-group row">
-                    
-                                     <label for="datetimepicker1" class="col-sm-2 col-form-label">Time</label>
-                                            <div class="input-group date col-sm-10" id="datetimepicker1" data-target-input="nearest">
-                                                <input type="text" id="dtp" class="form-control datetimepicker-input" value="17:00" data-target="#datetimepicker1"/>
-                                                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                                                    <div class="input-group-text">Time</i></div>
-                                                </div>
-                                            </div>
-
-                                    <script type="text/javascript">
-                                        $(function () {
-                                            $('#datetimepicker1').datetimepicker({
-                                                format: 'HH:mm'
-                                            });
-                                        });
-                                    </script>
-                                </div>
-                         
-
-
-
-                        <div class="form-group">
-                                <label for="formControlRange">Pick Time Margin (min)</label>
-                                <input name="slider_value" type="range" min="10" max="240" value="60" step="10" class="form-control-range" id="formControlMargin" onchange="updateMarginInput(this.value);">
-                              </div>
-                         
-                         
-                         
-                           <div class="form-group row">
-                            <label for="margin" class="col-sm-2 col-form-label">Margin</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="margin" placeholder="Margin" value="60">
-                            </div>
-                          </div>
-                         
-
-                         
-                          </form> 
-
-              <div class="form-group row">
-                <div class="col-sm-10 text-center">
-                    <button onclick="apiFunction()" class="btn btn-success">Go!</button>
+              <div class="form-group row mt-3">
+                <label for="lat" class="col-sm-4 col-form-label">Latitude</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="lat" placeholder="Latitude" value="-35.3">
                 </div>
               </div>
 
+              <div class="form-group row">
+                <label for="lon" class="col-sm-4 col-form-label">Longitude</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="lon" placeholder="Longitude" value="149.12">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="formControlRange">Pick Radius (km)</label>
+                <input name="slider_value" type="range" min="0.5" max="10" value="1" step="0.5" class="form-control-range" id="formControlRange" onchange="updateRadiusInput(this.value);">
+              </div>
+
+              <div class="form-group row">
+                <label for="radius" class="col-sm-4 col-form-label">Radius</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="radius" placeholder="Radius" value="1">
+                </div>
+              </div>
+
+              <hr>
+              <h4>When</h4>
+
+              <div class="form-group row">
+                <label for="datetimepicker1" class="col-sm-4 col-form-label">Time</label>
+                <div class="input-group date col-sm-8" id="datetimepicker1" data-target-input="nearest">
+                  <input type="text" id="dtp" class="form-control datetimepicker-input" value="17:00" data-target="#datetimepicker1"/>
+                  <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                    <div class="input-group-text">Time</i></div>
+                  </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#datetimepicker1').datetimepicker({
+                            format: 'HH:mm'
+                        });
+                    });
+                </script>
+              </div>
+
+              <div class="form-group">
+                <label for="formControlRange">Pick Time Margin (min)</label>
+                <input name="slider_value" type="range" min="10" max="240" value="60" step="10" class="form-control-range" id="formControlMargin" onchange="updateMarginInput(this.value);">
+              </div>
+
+              <div class="form-group row">
+                <label for="margin" class="col-sm-4 col-form-label">Margin</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="margin" placeholder="Margin" value="60">
+                </div>
+              </div>
+
+              </form>
+
+              <div class="form-group row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6 text-center">
+                    <button onclick="apiFunction()" class="btn bt-large btn-block btn-success">Go!</button>
+                </div>
+                <div class="col-sm-3"></div>
+              </div>
+
           </div>
+          <!-- End of form area -->
 
 
-          <div class="col-sm-2 text-center"></div>
+          <!-- API Response Area -->
+          <div class="col-sm-4 text-center">
 
+            <div class="card mt-8"> </div>
+              <div class="card mt-5" style="width: 100%; height: 150px">
+                <div class="card-header">
+                  Your Location
+                </div>
+                <div class="card-body">
+                  <p id="api_req" class="card-text">Your location will appear here...</p>
+                </div>
+              </div>
 
+            <div class="card mt-2" style="width: 100%">
+              <div class="card-header">
+                API response
+              </div>
+              <div class="card-body">
+                <p id="api_resp" class="card-text">CAS29 will respond here...</p>
+              </div>
+            </div>
+
+            <div class="card mt-2" style="width: 100%"> <!-- ; height: 350px -->
+              <div class="card-header">
+                Response interpretation
+              </div>
+              <div class="card-body">
+                <p id="r1" class="card-text">Execute API call to see interpretation</p>
+              </div>
+            </div>
 
         </div>
-        <div class="col text-center">
-        
-         
-          <div class="card mt-8"> </div>
-          
-                        <div class="card mt-5" style="width: 550px; height: 150px">
-                          <div class="card-header">
-                            API request
-                          </div>
-                          <div class="card-body">
-                           
-                            <p id="api_req" class="card-text">API request will appear here</p>
-                           
-                          </div>
-                        </div>
 
+      <div class="col-sm-2 text-center"></div>
 
-                        <div class="card mt-2" style="width: 550px"> 
-                          <div class="card-header">
-                            API response
-                          </div>
-                          <div class="card-body">
-                     
-                            <p id="api_resp" class="card-text">API response will appear here</p>
-                           
-                          </div>
-                        </div>
-          
-          
-                                  <div class="card mt-2" style="width: 550px"> <!-- ; height: 350px -->
-                          <div class="card-header">
-                            Response interpretation
-                          </div>
-                          <div class="card-body">
-                            <p id="r1" class="card-text">Execute API call to see interpretation</p>
-                          
-                          </div>
-                        </div>
-          
-        </div>
       </div>
-   </div>  
+
+  </div>
 
 
 
