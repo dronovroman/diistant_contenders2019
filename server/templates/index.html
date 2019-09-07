@@ -53,7 +53,7 @@
 
       <div class="row">
 
-          <div class="col-sm-2 text-center"></div>
+          <div class="col-sm-1 text-center"></div>
 
           <div class="col-sm-4 text-left">
               <p>
@@ -67,6 +67,8 @@
               </p>
           </div>
 
+          <div class="col-sm-2 text-center"></div>
+
           <div class="col-sm-4 text-center">
               <p>
                   M A P   G O E S   H E R E <br>
@@ -76,7 +78,7 @@
               </p>
           </div>
 
-          <div class="col-sm-2 text-center"></div>
+          <div class="col-sm-1 text-center"></div>
 
       </div>
 
@@ -86,23 +88,24 @@
 
 <script>
 
-    var cas29msg = ["Hi! I'm CAS29.", "I keep you safe on the road.", "I live on your phone.", "Let's say you're cycling here...", "I monitor your location as your ride...", "...and send you real-time updates about safety issues close by.", "Did you know that in the past 12 months there have been two accidents involving cyclists at this roundabout?", "Better keep an eye out and be extra careful!"];
-    var timeBetween = 10;
+    var cas29msg = ["Hi! I'm CAS29.", "I keep you safe on the road.", "I live on your phone.", "Let's say you're cycling here:", "I monitor your location as your ride...", "...and send you real-time updates about safety issues close by.", "Did you know that in the past 12 months there have been two accidents involving cyclists at this roundabout?", "Better keep an eye out and be extra careful!"];
+    var timeBetween = 70;
     var i;
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    window.onload = function casFirst() {
+    window.onload = async function casFirst() {
+        await sleep(cas29msg[0].length * timeBetween);
         document.getElementById("cas0").innerHTML = cas29msg[0];
-        window.setTimeout(cas29msg, 1000);
+        window.setTimeout(msg, cas29msg[1].length * timeBetween);
     }
 
-    async function cas29msg() {
-        for (let i = 1; i < cas29msg.length + 1; i++) {
+    async function msg() {
+        for (let i = 1; i < cas29msg.length; i++) {
             await sleep(cas29msg[i].length * timeBetween);
-            document.getElementById(cas1).innerHTML = cas29msg[i];
+            document.getElementById("cas"+i).innerHTML = cas29msg[i];
         }
     }
 
