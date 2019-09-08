@@ -17,8 +17,8 @@
           <div class="col-sm-1 text-center"></div>
 
           <div class="col-sm-6 text-left">
-              <div >
-                 <img src="https://media.giphy.com/media/jqBvfKU4i34q8dZu8p/giphy.gif" alt="app promo" style="width:500px;">
+              <div class="embed-responsive embed-responsive-16by9">
+                 <img class="embed-responsive-item" src="https://media.giphy.com/media/jqBvfKU4i34q8dZu8p/giphy.gif" alt="app promo">
               </div>
               <br><br><br><br><br>
           </div>
@@ -95,16 +95,15 @@
                   <div class="message last">
                       <span id="cas8"></span>
                   </div>
+                  <br><br><br><br><br><br><br><br><br><br><br><br>
               </div>
 
           </div>
 
-          <div class="col-sm-6 text-center" id="embedded-map">
-              <div >
-
-                  <img src="https://media.giphy.com/media/h8fP3F7IMgDqU0QnYe/giphy.gif" alt="map" style="width:500px;">
+          <div class="col-sm-6 text-center" id="embedded-map" style="visibility: hidden">
+              <div class="embed-responsive embed-responsive-16by9">
+                  <img class="embed-responsive-item" src="https://media.giphy.com/media/h8fP3F7IMgDqU0QnYe/giphy.gif" alt="map">
               </div>
-              <br><br>
           </div>
 
           <div class="col-sm-1 text-center"></div>
@@ -121,7 +120,7 @@
     var timeBetween = 70;
     var i;
 
-    const scrollPoint = document.getElementById('embedded-map');
+    const scrollPoint = document.getElementById('divcas8');
     const yCoord = scrollPoint.getBoundingClientRect().top + window.pageYOffset;
 
     function sleep(ms) {
@@ -142,6 +141,7 @@
                     top: yCoord,
                     behaviour: 'smooth'
                 });
+                document.getElementById("embedded-map").style.visibility='visible';
             }
             await sleep(cas29msg[i].length * timeBetween);
             document.getElementById("cas"+i).innerHTML = cas29msg[i];
