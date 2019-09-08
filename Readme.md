@@ -16,7 +16,7 @@ Proof-of-concept for a cllient-server system involving a data-crunching Python A
 
 
 
-###Dataset Highlights
+### Dataset Highlights
 
 [ACT cyclists crash data](https://www.data.act.gov.au/Justice-Safety-and-Emergency/Cyclist-Crashes/n2kg-qkwj)
 
@@ -25,7 +25,7 @@ Proof-of-concept for a cllient-server system involving a data-crunching Python A
 [Bureau of Meteorology live feed for ACT]()
 
 
-#####Work in progress/proof-of-concept: 
+##### Work in progress/proof-of-concept: 
 (Queensland Open API)
 [Crash data from Queensland roads - Open Data Portal | Queensland Government](https://www.data.qld.gov.au/dataset/crash-data-from-queensland-roads)
 
