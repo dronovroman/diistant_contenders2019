@@ -29,14 +29,13 @@ public class fetchData extends AsyncTask <Void, Void, Void>{
     String etLAT = MainActivity.varLAT.getText().toString();
     String etLON = MainActivity.varLON.getText().toString();
     String etRAD = MainActivity.varRAD.getText().toString();
-    //String etRAD = MainActivity.varRAD.getText().toString();
 
-    String lln = "";
+
+
 
     @Override
     protected Void doInBackground(Void... voids) {
         try {
-            //URL url = new URL("http://jsonplaceholder.typicode.com/comments");
             CompoundURL = etURL+"LAT="+etLAT+"&LON="+etLON+"&RADIUS="+etRAD;
             URL url = new URL(CompoundURL);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -47,21 +46,13 @@ public class fetchData extends AsyncTask <Void, Void, Void>{
             while (line !=null){
                 line = bufferedReader.readLine();
                 data = data + line;
-             //   lln=line;
             }
             JSONArray JA = new JSONArray(data);
-            JSONObject JO = JA.getJSONObject(1);
+            JSONObject JO = JA.getJSONObject(1); // cyclists data
             dParsed1 = Integer.toString((Integer) JO.get("Injury"));
             dParsed2 = Integer.toString((Integer)JO.get("Fatal"));
 
-            //dParsed1 = String.valueOf(JA.length());
-            //for (int i=0; i<JA.length(); i++){
-            //    JSONObject JO = JA.getJSONObject(i);
-            //    sinigleParsed = "rf1: " + JO.get("email");
-            //    dataParsed = dataParsed + sinigleParsed;
-            //    dParsed1 = (String) JO.get("id");
-            //    dParsed2 = (String) JO.get("email");
-            //}
+
 
 
         } catch (MalformedURLException e) {
@@ -79,7 +70,7 @@ public class fetchData extends AsyncTask <Void, Void, Void>{
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        //MainActivity.data.setText(this.dataParsed);
+
         MainActivity.data1.setText(dParsed1);
         MainActivity.data2.setText(dParsed2);
         Log.i("DATAURL", CompoundURL);//dParsed1 + dParsed2);

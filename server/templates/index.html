@@ -17,7 +17,9 @@
           <div class="col-sm-1 text-center"></div>
 
           <div class="col-sm-6 text-left">
-              <iframe width="560px" height="315px" src="https://www.youtube.com/embed/kotWv4MCxNI?autoplay=1&mute=1&enablejsapi=1" frameborder="0"></iframe>
+              <div class="embed-responsive embed-responsive-16by9">
+                 <img class="embed-responsive-item" src="https://media.giphy.com/media/jqBvfKU4i34q8dZu8p/giphy.gif" alt="app promo">
+              </div>
               <br><br><br><br><br>
           </div>
 
@@ -93,14 +95,15 @@
                   <div class="message last">
                       <span id="cas8"></span>
                   </div>
+                  <br><br><br><br><br><br><br><br><br><br><br><br>
               </div>
 
           </div>
 
-          <div class="col-sm-6 text-center" id="embedded-map">
-
-              <iframe width="560" height="560" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=149.08696174621585%2C-35.32408937278182%2C149.17442321777347%2C-35.27400328507705&amp;layer=mapnik&amp;marker=-35.299015178614454%2C149.13073539733887" style="border: none"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=-35.2990&amp;mlon=149.1307#map=14/-35.2991/149.1307"></a></small>
-
+          <div class="col-sm-6 text-center" id="embedded-map" style="visibility: hidden">
+              <div class="embed-responsive embed-responsive-16by9">
+                  <img class="embed-responsive-item" src="https://media.giphy.com/media/h8fP3F7IMgDqU0QnYe/giphy.gif" alt="map">
+              </div>
           </div>
 
           <div class="col-sm-1 text-center"></div>
@@ -117,7 +120,7 @@
     var timeBetween = 70;
     var i;
 
-    const scrollPoint = document.getElementById('embedded-map');
+    const scrollPoint = document.getElementById('divcas8');
     const yCoord = scrollPoint.getBoundingClientRect().top + window.pageYOffset;
 
     function sleep(ms) {
@@ -138,6 +141,7 @@
                     top: yCoord,
                     behaviour: 'smooth'
                 });
+                document.getElementById("embedded-map").style.visibility='visible';
             }
             await sleep(cas29msg[i].length * timeBetween);
             document.getElementById("cas"+i).innerHTML = cas29msg[i];
