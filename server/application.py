@@ -349,9 +349,6 @@ def close_threads():
         print('Could not close cyclist SODA API thread...')
     
     
-if __name__ == '__main__':
-    app.run()
-
 
 
 atexit.register(close_threads)
@@ -364,5 +361,9 @@ print('cyclist crash data:', len(crash_df_cc))
 init_params ()
 df = prepare_df()
 dfcc=prepare_dfcc()
+
+
+#if __name__ == '__main__':
+#    app.run()
 
 
