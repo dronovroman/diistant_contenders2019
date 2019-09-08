@@ -48,3 +48,7 @@
   background: white;
   border-bottom-left-radius: 10px;
 }
+
+.embed-responsive-10by11{
+    padding-bottom: 110%;
+}
