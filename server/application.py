@@ -363,7 +363,7 @@ df = prepare_df()
 dfcc=prepare_dfcc()
 
 
-#if __name__ == '__main__':
-#    app.run()
+if __name__ == '__main__':
+    app.run()
 
 

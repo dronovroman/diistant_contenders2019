@@ -16,20 +16,36 @@ Proof-of-concept for a cllient-server system involving a data-crunching Python A
 
 
 
-### Dataset Highlights
+## Dataset Highlights
 
 [ACT cyclists crash data](https://www.data.act.gov.au/Justice-Safety-and-Emergency/Cyclist-Crashes/n2kg-qkwj)
 
 [ACT pedestrian crash data]()
 
-[Bureau of Meteorology live feed for ACT]()
+[Bureau of Meteorology live feed for ACT](http://www.bom.gov.au/products/IDN60903/IDN60903.94926.shtml)
 
 
 ##### Work in progress/proof-of-concept: 
-(Queensland Open API)
+
 [Crash data from Queensland roads - Open Data Portal | Queensland Government](https://www.data.qld.gov.au/dataset/crash-data-from-queensland-roads)
 
 [QLDTraffic GeoJSON API - Open Data Portal | Queensland Government](https://www.data.qld.gov.au/dataset/131940-traffic-and-travel-information-geojson-api)
 
+## Technology Highlights
 
- 
+##### Server:
+
+[Python flask](https://palletsprojects.com/p/flask/)
+
+
+##### Mobile client:
+
+[Android mobile app in Java](https://www.java.com/en/)
+[Yolo V3 object detection](https://pjreddie.com/darknet/yolo/)
+[CAS29 Voice generated using pre-trained Tacotron2-waveglow model by NVidia](https://github.com/NVIDIA/tacotron2)
+
+
+
+
+
+
