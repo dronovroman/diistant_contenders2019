@@ -74,16 +74,71 @@
 
 
                 <br> 
+                <hr>
                 <br>
              <img src="https://i.ibb.co/pZtNYyp/Screenshot-20190908-091203-Cas2029mobile-1.jpg">
 
 
-              <br><br><br>
+              <br><hr><br><br>
+              
+              
+              
+               <div class="text_cell_render border-box-sizing rendered_html">
+                <h1 id="Data-APIs-for-CAS29">Data APIs for CAS29</h1><p>For our CAS29 application prototype, we are currently using APIs from the ACT government to access datasets related to traffic and road safety. Additionally, we use APIs to extract the most recent weather updates from the Bureau of Meteorology (BOM). CAS29 can also be easily adapted to use APIs from the QLD government to access datasets related to traffic and road safety in QLD.</p>
+                <p>The purpose of this document is to demonstrate the use case for the data sources listed below in the context of CAS29:</p>
+                <h3 id="ACT-Data">ACT Data</h3><p>There are two key historical datasets that we use, both updated daily and going as far back as 2012:</p>
+                <ol>
+                <li>Pedestrian Crashes: <a href="https://www.data.act.gov.au/Justice-Safety-and-Emergency/Pedestrian-Crashes/emq2-8bc4">https://www.data.act.gov.au/Justice-Safety-and-Emergency/Pedestrian-Crashes/emq2-8bc4</a></li>
+                <li>Cyclist Crashes: <a href="https://www.data.act.gov.au/Justice-Safety-and-Emergency/Cyclist-Crashes/n2kg-qkwj">https://www.data.act.gov.au/Justice-Safety-and-Emergency/Cyclist-Crashes/n2kg-qkwj</a></li>
+                </ol>
+                <p>They include geographic co-ordinates of each crash as well as some other details about the severity of the crash, road conditions, time of day etc.</p>
+                <h3 id="QLD-Data">QLD Data</h3><p>In QLD, there two key data sources that can be incorporated into CAS29:</p>
+                <ol>
+                <li>Road Crash Locations: <a href="https://www.data.qld.gov.au/dataset/crash-data-from-queensland-roads">https://www.data.qld.gov.au/dataset/crash-data-from-queensland-roads</a><ul>
+                <li>Similar to the ACT datasets, this includes the geo-coordinates of the crash sites</li>
+                <li>The data goes back to 2001; however, it only goes up to end-of-2018</li>
+                <li>It is relatively rich in detail</li>
+                <li>Notably, it captures all accident types (including pedestrian and cyclist) in one dataset<ul>
+                <li>However, crashes that results in property-damage only are not recorded from 2011 onwards
+                <br><br>  </li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                <li>QLDTraffic GeoJSON API: <a href="https://www.data.qld.gov.au/dataset/131940-traffic-and-travel-information-geojson-api">https://www.data.qld.gov.au/dataset/131940-traffic-and-travel-information-geojson-api</a><ul>
+                <li>This is a real-time information service for the state of QLD</li>
+                <li>It covers the following:<ul>
+                <li>Live image feeds from webcams throughout the state</li>
+                <li>Live updates of high-risk crash zones (including geo-coordinates of these zones)</li>
+                <li>Live event updates (e.g. construction) (including geo-coordinates of affected areas)</li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                </ol>
+                <h3 id="BOM-Data">BOM Data</h3><p>We can extract latest available data from relevant weather stations for the cyclist to use. Lists of weather stations are available from the links below:</p>
+                <ul>
+                <li>ACT: <a href="http://www.bom.gov.au/act/observations/canberra.shtml">http://www.bom.gov.au/act/observations/canberra.shtml</a></li>
+                <li>QLD: <a href="http://www.bom.gov.au/qld/observations/qldall.shtml">http://www.bom.gov.au/qld/observations/qldall.shtml</a></li>
+                </ul>
+                <p>Currently, CAS29 only links to the main Canberra weather station, with plans to allow cyclists to access data from their nearest station in future versions.</p>
+                <hr>
+                <p><br><br>
+                We will use Python to explore each of the above data sources and explain how they are currently used or how they will be used in the future.</p>
+                
+                </div>
+                </div>
+                </div>
+              
+              
           </div>
           <div class="col-sm-3 text-center"></div>
       </div>
 
   </div>
+  
+  
+ 
 
 
 
