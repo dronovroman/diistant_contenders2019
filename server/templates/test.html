@@ -142,35 +142,59 @@
           <!-- API Response Area -->
           <div class="col-sm-4 text-center">
 
-            <div class="card mt-8"> </div>
-              <div class="card mt-5" style="width: 100%; height: 150px">
-                <div class="card-header">
-                  Your Location
-                </div>
-                <div class="card-body">
-                  <p id="api_req" class="card-text">Your location will appear here...</p>
-                </div>
+              <div id="accordion">
+
+                  <hr>
+                  <h4></h4>
+
+                  <div class="card">
+                      <div class="card-header" id="your-location-header">
+                          <h5 class="mb-0">
+                              <button class="btn btn-light collapsed" data-toggle="collapse" data-target="#your-location" aria-expanded="false" aria-controls="your-location">
+                                  Your Location
+                              </button>
+                          </h5>
+                      </div>
+                      <div id="your-location" class="collapse" aria-labelledby="your-location-header" data-parent="#accordion">
+                          <div class="card-body">
+                              <p id="api_req" class="card-text">Your location will appear here...</p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="card mt-5">
+                      <div class="card-header" id="api-response-header">
+                          <h5 class="mb-0">
+                              <button class="btn btn-light collapsed" data-toggle="collapse" data-target="#api-response" aria-expanded="false" aria-controls="api-response">
+                                  API Response
+                              </button>
+                          </h5>
+                      </div>
+                      <div id="api-response" class="collapse" aria-labelledby="api-response-header" data-parent="#accordion">
+                          <div class="card-body">
+                              <p id="api_resp" class="card-text">CAS29 will respond here...</p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="card mt-5">
+                      <div class="card-header" id="response-interpretation-header">
+                          <h5 class="mb-0">
+                              <button class="btn btn-light" data-toggle="collapse show" data-target="#response-interpretation" aria-expanded="true" aria-controls="response-interpretation">
+                                  Response Interpretation
+                              </button>
+                          </h5>
+                      </div>
+                      <div id="response-interpretation" class="collapse show" aria-labelledby="response-interpretation-header" data-parent="#accordion">
+                          <div class="card-body">
+                              <p id="r1" class="card-text">Execute API call to see interpretation</p>
+                          </div>
+                      </div>
+                  </div>
+
               </div>
 
-            <div class="card mt-2" style="width: 100%">
-              <div class="card-header">
-                API response
-              </div>
-              <div class="card-body">
-                <p id="api_resp" class="card-text">CAS29 will respond here...</p>
-              </div>
-            </div>
-
-            <div class="card mt-2" style="width: 100%"> <!-- ; height: 350px -->
-              <div class="card-header">
-                Response interpretation
-              </div>
-              <div class="card-body">
-                <p id="r1" class="card-text">Execute API call to see interpretation</p>
-              </div>
-            </div>
-
-        </div>
+          </div>
 
       <div class="col-sm-2 text-center"></div>
 
