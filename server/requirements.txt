@@ -8,4 +8,4 @@ pandas==0.25.1
 haversine==2.1.2
 Flask_Limiter==1.0.1
 beautifulsoup4==4.8.0
-lxml==4.4.1
+lxml==4.6.3
